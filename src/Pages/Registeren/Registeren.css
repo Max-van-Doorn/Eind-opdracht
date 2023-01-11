@@ -1,0 +1,9 @@
+.container{
+    width: 60%;
+}
+
+.registreren-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
