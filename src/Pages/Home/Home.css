@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.screenshot{
+    width:250px;
+    height: 200px;
+}
+
+.text{
+    width: 250px;
+    height: 75px;
+    white-space: nowrap ;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+.article{
+    width: 250px;
+    background-color: gainsboro;
+    margin-top: 30px;
+    /*height: 300px;*/
+    border: solid black;
+}
+
+.data-button{
+    width: 150px;
+    height: 55px;
+    border-radius: 20px;
+    margin-left: 20px;
+}
+.data-button:hover{
+    background: rgb(12,241,211);
+    background: linear-gradient(90deg, rgba(12,241,211,1) 0%, rgba(66,205,26,1) 27%, rgba(0,255,86,1) 50%, rgba(14,176,139,1) 77%, rgba(3,227,209,1) 100%);
+}

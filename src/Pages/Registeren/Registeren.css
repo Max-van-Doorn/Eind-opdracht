@@ -1,9 +1,83 @@
-.container{
-    width: 60%;
+.registreren-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: gainsboro;
 }
 
 .registreren-title {
+    /*display: flex;*/
+    /*flex-direction: row;*/
+    /*justify-content:center;*/
+    /*align-items: center;*/
+    margin-top: 40px;
+    width: 400px;
+}
+.registreren-fieldset{
+    margin: 20px;
+    width: 300px;
     display: flex;
     flex-direction: row;
     justify-content: center;
+    border-radius: 20px;
+    background-color: black;
+    color: white;
+}
+.form-registreren-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: gainsboro;
+
+}
+
+.profile-label{
+    width: 400px;
+}
+
+.registreren-profile-input{
+    width: 400px;
+    margin-bottom: 20px;
+    height: 40px;
+}
+
+.registreren-email-input{
+    width: 400px;
+    margin-bottom: 20px;
+    height: 40px;
+}
+.email-label{
+width: 400px;
+}
+
+.password-label{
+width: 400px;
+}
+
+.registreren-password-input{
+    width: 400px;
+    margin-bottom: 20px;
+    height: 40px;
+}
+
+.registreren-button{
+    background-color: black;
+    color: white;
+    width: 150px;
+    height: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.registreren-link{
+    text-decoration: underline;
+    color: black;
+    text-decoration-style: initial;
+}
+
+.registreren-text{
+    margin-top: 20px;
 }

@@ -46,18 +46,19 @@
     width: 400PX;
     align-self: center;
 }
+/*.profile-input{*/
+/*    height: 3em;*/
+/*    border: solid black;*/
+/*    width: 400PX;*/
+/*    align-self: center;*/
+/*    margin-bottom: 1em;*/
+/*}*/
 
 .label-email{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
     border: solid  black;
     width: 100px;
 }
 .label-password {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
     border: solid black;
     width: 100px;
     margin-top: 1em;
@@ -74,3 +75,8 @@
     height: 2em;
     border: solid black;
 }
+/*.label-profile{*/
+/**/
+/*    border: solid black;*/
+/*    width: 100px;*/
+/*}*/

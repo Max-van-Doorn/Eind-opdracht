@@ -7,7 +7,7 @@ const Navbar = () => {
                 <ul className={"unordered-list"}>
                     <li className={"home-button"}><a className={"home-text"} href={"/"}> <img className={"home-button-picture"} src={img1} alt="website-icon"/>GameChecker</a></li>
                     <li className={"about-us"}><a href={"/About-Us"}>About us</a></li>
-                    <li className={"registreren-button"}><a href={"/Registreren"}>Registreren</a> </li>
+                    <li className={"registreren-nav-button"}><a href={"/Registreren"}>Registreren</a> </li>
                     <li className={"login"}><a href={"/Login"}>Login</a></li>
                 </ul>
 

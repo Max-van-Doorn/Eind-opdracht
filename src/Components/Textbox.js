@@ -6,6 +6,8 @@ const Textbox = () => {
         <>
             <div className="div-container">
         <div className="form-container">
+            {/*<label className="label-profile">Profile:</label>*/}
+            {/*<input className="profile-input" type="text" id="Name" name="Name" placeholder="Profile Name"/>*/}
             <label className="label-email">Email:</label>
             <input className="email-input" type="text" id="Name" name="Name" placeholder="Email"/>
             {/*<div className="form-container-2">*/}
