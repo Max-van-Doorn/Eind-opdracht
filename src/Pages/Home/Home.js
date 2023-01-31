@@ -52,11 +52,11 @@ function Home() {
                         <p className="text"><strong>Released:</strong> {gameData.results[1].released}</p>
                     </article>
                     <article className="article">
-                        <img className="screenshot" src={gameData.results[2].background_image}/>
-                        <Link to={`/Gamedata/${gameData.results[2].id}`}>NAAR DE DETAILS</Link>
-                        <h1>{gameData.results[2].name}</h1>
+                        <img className="screenshot" src={gameData.results[15].background_image}/>
+                        <Link to={`/Gamedata/${gameData.results[15].id}`}>NAAR DE DETAILS</Link>
+                        <h1>{gameData.results[15].name}</h1>
                         {/*<p><strong>{gameData.developers[0].name}</strong></p>*/}
-                        <p className="text"><strong>Released:</strong> {gameData.results[2].released}</p>
+                        <p className="text"><strong>Released:</strong> {gameData.results[15].released}</p>
                     </article>
                 </section>
             }

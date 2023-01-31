@@ -3,10 +3,9 @@
     margin: 0;
 }
 
-.body{
-    background-color: black;
-    margin-left: 3em;
-    margin-right:3em;
+body{
+    background-color: gainsboro;
+
 }
 a:hover{
     text-decoration: underline red;
@@ -91,3 +90,6 @@ a{
     margin-top: 15px;
 }
 
+/*.footer-container{*/
+/*    position: relative;*/
+/*}*/

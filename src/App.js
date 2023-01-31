@@ -21,7 +21,9 @@ function App() {
                <Route path="/Registreren" element={<Registreren />} />
                   <Route path="/Gamedata/:id" element={<Gamedata />}/>
            </Routes>
+              <div className="footer-container">
               <footer className="footer-about-us">GameChecker - Max van Doorn</footer>
+              </div>
        </div>
       </>
   );

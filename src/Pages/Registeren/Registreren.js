@@ -48,6 +48,10 @@ function Registeren() {
                                     value: true,
                                     message: "Email moet een @ bevatten"
                                 },
+                                minLength: {
+                                    value: 4,
+                                    message: "Vul een geldig mail adres in"
+                                },
                                 validate: (value) => value.includes('@')
                             })}
                         />

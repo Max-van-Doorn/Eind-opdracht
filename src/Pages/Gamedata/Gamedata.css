@@ -1,0 +1,32 @@
+
+.game-page-container{
+    border: solid black;
+    margin: 20px;
+}
+
+
+.main-gamedata-photo{
+    width: 400px;
+    margin: 20px;
+}
+
+.game-name-and-release{
+margin: 20px;
+}
+
+.game-info{
+    margin: 20px;
+width: 800px;
+}
+
+.game-achievements{
+    margin: 20px;
+}
+.secondary-gamedata-photo{
+    width: 400px;
+    margin: 20px;
+}
+
+.information-container{
+    margin: 20px;
+}
