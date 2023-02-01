@@ -10,6 +10,8 @@ import Gamedata from "./Pages/Gamedata/Gamedata";
 
 
 function App() {
+
+
   return (
       <>
           <div className={"App"}>

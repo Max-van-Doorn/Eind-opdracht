@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {Link, useParams} from "react-router-dom";
+import {useParams} from "react-router-dom";
 import axios from "axios";
 import "./Gamedata.css"
 import Gametile from "../../Components/Gametile";
@@ -11,10 +11,11 @@ function Gamedata(){
 const {id}= useParams();
     async function fetchData(){
         try {
-            const response = await axios.get (`https://api.rawg.io/api/games/${id}?key=${apiKey}`);
+            const result = await axios.get (`https://api.rawg.io/api/games/${id}?key=${apiKey}`);
+            const result2 = axios.get(`https://api.rawg.io/api/games/${id}/screenshots?key=${apiKey}`)
 
-            console.log(response.data);
-            setGameTile(response.data)
+            console.log(result.data, result2);
+            setGameTile(result.data,)
         } catch (e){
             console.error(e);
         }
@@ -35,7 +36,7 @@ const {id}= useParams();
             <div className="information-container">
                 <p><strong> Achievements: </strong>{gameTile.achievements_count}</p>
             <p><strong>Publishers:</strong> {gameTile.publishers[0].name}</p>
-            <p><strong>Genres:</strong> {gameTile.genres[0].name}, {gameTile.genres[1].name},</p>
+            <p><strong>Genres:</strong> {gameTile.genres[0].name}, {gameTile.genres[1].name}</p>
             <p><strong>Platforms:</strong> {gameTile.parent_platforms[0].platform.name}, {gameTile.parent_platforms[1].platform.name}, {gameTile.parent_platforms[2].platform.name} </p>
             </div>
             Website: <h4>{gameTile.website}</h4>

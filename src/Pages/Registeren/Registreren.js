@@ -1,6 +1,7 @@
 import "./Registeren.css"
 import { useForm } from 'react-hook-form'
 import React from "react";
+import InputComponent from "../../Components/InputComponent";
 
 
 function Registeren() {
@@ -22,63 +23,110 @@ function Registeren() {
             <section>
                 <form className="form-registreren-container" onSubmit={handleSubmit(handleFormSubmit)}>
                     <fieldset className="registreren-fieldset"><strong>Gegevens </strong></fieldset>
-
-                    <label className="profile-label" htmlFor="profile-field">
-                        Profile name: </label>
-                        <input className="registreren-profile-input" placeholder="Type your profile name"
-                            type="text"
-                            id="profile-field"
-                            {...register("profile",{
-                                required: "Naam is verplicht",
-                                minLength: {
-                                    value: 3,
-                                    message: "Naam moet minimaal 3 karakters bevatten"
-                                },
-                                })}
-                            />
-                        {errors.profile && <p>{errors.profile.message}</p>}
-
-                    <label className="email-label" htmlFor="email-field">
-                        Email:  </label>
-                        <input className="registreren-email-input" placeholder="Type your email adress"
-                            type="text"
-                            id="email-field"
-                            {...register("email",{
+                        <InputComponent
+                            inputType="text"
+                            inputName="name-name"
+                            inputId="name-field"
+                            inputLabel="Profiel Naam:"
+                            validationRules={{
                                 required: {
                                     value: true,
-                                    message: "Email moet een @ bevatten"
-                                },
-                                minLength: {
-                                    value: 4,
-                                    message: "Vul een geldig mail adres in"
-                                },
-                                validate: (value) => value.includes('@')
-                            })}
+                                    message: 'Naam is verplicht',
+                                }
+                            }}
+                            register={register}
+                            errors={errors}
                         />
-                        {errors.email && <p>{errors.email.message}</p>}
-
-                    <label className="password-label" htmlFor="password-field">
-                        Password:  </label>
-                        <input className="registreren-password-input" placeholder="Type your password"
-                            type="password"
-                            id="password-field"
-                            {...register("password",
-                                {
+                        <InputComponent
+                            inputType="text"
+                            inputName="email-name"
+                            inputId="name-field"
+                            inputLabel="Email:"
+                            validationRules={{
                                 required: {
                                     value: true,
-                                    message: "Dit veld is verplicht",
+                                    validate: (value) => value.includes('@'),
+                                    message: 'Email is verplicht',
+                                }
+                            }}
+                            register={register}
+                            errors={errors}
+                        />
+                        <InputComponent
+                            inputType="password"
+                            inputName="password-name"
+                            inputId="name-field"
+                            inputLabel="Wachtwoord:"
+                            validationRules={{
+                                required: {
+                                    value: true,
+                                    message: 'Wachtwoord is verplicht',
                                 },
                                 minLength: {
                                     value: 6,
-                                    message: "Moet minstens 6 karakters bevatten",
-                                },
-                                    maxLength: {
-                                    value: 20,
-                                        message: "Mag maximaal 20 karakters bevatten"
-                                    },
-                            })}
+                                    message: 'Moet minimaal 6 karakters bevatten'
+                                }
+                            }}
+                            register={register}
+                            errors={errors}
                         />
-                        {errors.password && <p>{errors.password.message}</p>}
+                    {/*<label className="profile-label" htmlFor="profile-field">*/}
+                    {/*    Profile name: </label>*/}
+                    {/*    <input className="registreren-profile-input" placeholder="Type your profile name"*/}
+                    {/*        type="text"*/}
+                    {/*        id="profile-field"*/}
+                    {/*        {...register("profile",{*/}
+                    {/*            required: "Naam is verplicht",*/}
+                    {/*            minLength: {*/}
+                    {/*                value: 3,*/}
+                    {/*                message: "Naam moet minimaal 3 karakters bevatten"*/}
+                    {/*            },*/}
+                    {/*            })}*/}
+                    {/*        />*/}
+                    {/*    {errors.profile && <p>{errors.profile.message}</p>}*/}
+
+                    {/*<label className="email-label" htmlFor="email-field">*/}
+                    {/*    Email:  </label>*/}
+                    {/*    <input className="registreren-email-input" placeholder="Type your email adress"*/}
+                    {/*        type="text"*/}
+                    {/*        id="email-field"*/}
+                    {/*        {...register("email",{*/}
+                    {/*            required: {*/}
+                    {/*                value: true,*/}
+                    {/*                message: "Dit veld is verplicht"*/}
+                    {/*            },*/}
+                    {/*            minLength: {*/}
+                    {/*                value: 4,*/}
+                    {/*                message: "Vul een geldig mail adres in"*/}
+                    {/*            },*/}
+                    {/*            validate: (value) => value.includes('@'),*/}
+                    {/*        })}*/}
+                    {/*    />*/}
+                    {/*    {errors.email && <p>{errors.email.message}</p>}*/}
+
+                    {/*<label className="password-label" htmlFor="password-field">*/}
+                    {/*    Password:  </label>*/}
+                    {/*    <input className="registreren-password-input" placeholder="Type your password"*/}
+                    {/*        type="password"*/}
+                    {/*        id="password-field"*/}
+                    {/*        {...register("password",*/}
+                    {/*            {*/}
+                    {/*            required: {*/}
+                    {/*                value: true,*/}
+                    {/*                message: "* Dit veld is verplicht",*/}
+                    {/*            },*/}
+                    {/*            minLength: {*/}
+                    {/*                value: 6,*/}
+                    {/*                message: "Moet minstens 6 karakters bevatten",*/}
+                    {/*            },*/}
+                    {/*                maxLength: {*/}
+                    {/*                value: 20,*/}
+                    {/*                    message: "Mag maximaal 20 karakters bevatten"*/}
+                    {/*                },*/}
+                    {/*        })}*/}
+                    {/*    />*/}
+                    {/*    {errors.password && <p>{errors.password.message}</p>}*/}
+                    <p><strong>-----------------------------------------------------------------------------------------</strong></p>
                     <p className="registreren-text">Heb je al een account? klik dan <a className="registreren-link" href={"/Login"}>hier</a>!</p>
                     <button className="registreren-button" type="submit">
                         <strong>Versturen</strong>

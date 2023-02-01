@@ -34,7 +34,7 @@
 
 }
 
-.profile-label{
+.label{
     width: 400px;
 }
 
@@ -49,11 +49,11 @@
     margin-bottom: 20px;
     height: 40px;
 }
-.email-label{
+.label{
 width: 400px;
 }
 
-.password-label{
+.label{
 width: 400px;
 }
 

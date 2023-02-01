@@ -3,11 +3,14 @@ import Header from "../../Components/Header";
 import axios, {get} from "axios";
 import './Home.css'
 import {Link} from "react-router-dom";
+import SearchBar from "../../Components/Searchbar";
+import gameTile from "../../Components/Gametile";
 
 const apiKey = "1a3cf7a33f9e441389d7ae0d1871849e"
 
 function Home() {
     const [gameData, setGameData] = useState({});
+    const [gameLocation, setGameLocation] = useState("")
 
     async function fetchData(){
         try {
@@ -26,14 +29,15 @@ function Home() {
 
     return (
         <>
+            <button className="data-button"
+                    type="button"
+                    onClick={fetchData}>
+                Haal data op!
+            </button>
         <div>
             <Header />
         </div>
-            <button className="data-button"
-                type="button"
-                onClick={fetchData}>
-                Haal data op!
-            </button>
+            <SearchBar setGameHandler={setGameLocation}/>
             {/*dit is een test versie. Dit is puur om te zien of de API werkt.*/}
             {Object.keys(gameData).length > 0 &&
                 <section className="section">
@@ -52,12 +56,13 @@ function Home() {
                         <p className="text"><strong>Released:</strong> {gameData.results[1].released}</p>
                     </article>
                     <article className="article">
-                        <img className="screenshot" src={gameData.results[15].background_image}/>
-                        <Link to={`/Gamedata/${gameData.results[15].id}`}>NAAR DE DETAILS</Link>
-                        <h1>{gameData.results[15].name}</h1>
+                        <img className="screenshot" src={gameData.results[18].background_image}/>
+                        <Link to={`/Gamedata/${gameData.results[18].id}`}>NAAR DE DETAILS</Link>
+                        <h1>{gameData.results[18].name}</h1>
                         {/*<p><strong>{gameData.developers[0].name}</strong></p>*/}
-                        <p className="text"><strong>Released:</strong> {gameData.results[15].released}</p>
+                        <p className="text"><strong>Released:</strong> {gameData.results[18].released}</p>
                     </article>
+
                 </section>
             }
         </>
