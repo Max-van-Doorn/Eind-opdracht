@@ -39,7 +39,7 @@ const {id}= useParams();
             <p><strong>Genres:</strong> {gameTile.genres[0].name}, {gameTile.genres[1].name}</p>
             <p><strong>Platforms:</strong> {gameTile.parent_platforms[0].platform.name}, {gameTile.parent_platforms[1].platform.name}, {gameTile.parent_platforms[2].platform.name} </p>
             </div>
-            Website: <h4>{gameTile.website}</h4>
+            Website: <h4> <a href={gameTile.website}></a></h4>
             <img className="secondary-gamedata-photo" src={gameTile.background_image_additional}/>
         </article>}
          {/*<Gametile />*/}

@@ -31,6 +31,10 @@
     border: solid black;
 }
 
+.gametile2-section{
+    margin: 30px;
+}
+
 .data-button{
     width: 150px;
     height: 55px;

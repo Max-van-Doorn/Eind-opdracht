@@ -1,7 +1,12 @@
 
 .game-page-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     border: solid black;
     margin: 20px;
+    margin-left: 20%;
+    margin-right: 20%;
 }
 
 
