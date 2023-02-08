@@ -7,6 +7,7 @@ import Login from "./Pages/Login/Login";
 import AboutUs from "./Pages/About-us/About-us";
 import Registreren from "./Pages/Registeren/Registreren";
 import Gamedata from "./Pages/Gamedata/Gamedata";
+import Games from "./Pages/Games/Games"
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
                <Route path="/About-Us" element={<AboutUs />} />
                <Route path="/Registreren" element={<Registreren />} />
                   <Route path="/Gamedata/:id" element={<Gamedata />}/>
+                  <Route path="/Games" element={<Games/>}/>
            </Routes>
               <div className="footer-container">
               <footer className="footer-about-us">GameChecker - Max van Doorn</footer>

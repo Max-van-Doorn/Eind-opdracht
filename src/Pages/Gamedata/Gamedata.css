@@ -11,7 +11,7 @@
 
 
 .main-gamedata-photo{
-    width: 400px;
+    width: 600px;
     margin: 20px;
 }
 
@@ -21,7 +21,7 @@ margin: 20px;
 
 .game-info{
     margin: 20px;
-width: 800px;
+    margin-right: 20%;
 }
 
 .game-achievements{
@@ -34,4 +34,12 @@ width: 800px;
 
 .information-container{
     margin: 20px;
+}
+
+.game-link{
+    margin-left: 20px;
+    color: black;
+    text-decoration: underline overline 3px;
+    text-underline-offset: 8px;
+    width: 200px;
 }

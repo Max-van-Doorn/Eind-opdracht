@@ -5,6 +5,7 @@ import './Home.css'
 import {Link} from "react-router-dom";
 import SearchBar from "../../Components/Searchbar";
 import GameTile2 from "../../Components/Gametile2";
+import myGif from '../../Assets/Gaming-gif.gif';
 
 const apiKey = "1a3cf7a33f9e441389d7ae0d1871849e"
 
@@ -12,7 +13,7 @@ function Home() {
     const [gameData, setGameData] = useState({});
     const [gameLocation, setGameLocation] = useState("")
 
-    async function fetchData(){
+    async function fetchData1(){
         try {
             const response = await axios.get (`https://api.rawg.io/api/games?key=${apiKey}`);
 
@@ -31,7 +32,7 @@ function Home() {
         <>
             <button className="data-button"
                     type="button"
-                    onClick={fetchData}>
+                    onClick={fetchData1}>
                 Haal data op!
             </button>
         <div>
@@ -104,6 +105,11 @@ function Home() {
                         released={gameData.results[10].released}/>
                 </section>
             }
+            <section className="gif-container">
+                <img className="gif" src={myGif} alt="gif"/>
+            </section>
+            <button> <a href={"/Games"}>Ga naar games</a>
+            </button>
         </>
     );
 }

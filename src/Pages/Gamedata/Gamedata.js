@@ -12,7 +12,7 @@ const {id}= useParams();
     async function fetchData(){
         try {
             const result = await axios.get (`https://api.rawg.io/api/games/${id}?key=${apiKey}`);
-            const result2 = axios.get(`https://api.rawg.io/api/games/${id}/screenshots?key=${apiKey}`)
+            const result2 = await axios.get(`https://api.rawg.io/api/games/${id}/screenshots?key=${apiKey}`)
 
             console.log(result.data, result2);
             setGameTile(result.data,)
@@ -39,7 +39,7 @@ const {id}= useParams();
             <p><strong>Genres:</strong> {gameTile.genres[0].name}, {gameTile.genres[1].name}</p>
             <p><strong>Platforms:</strong> {gameTile.parent_platforms[0].platform.name}, {gameTile.parent_platforms[1].platform.name}, {gameTile.parent_platforms[2].platform.name} </p>
             </div>
-            Website: <h4> <a href={gameTile.website}></a></h4>
+            <a className="game-link" href={gameTile.website}>Browse the game website:</a>
             <img className="secondary-gamedata-photo" src={gameTile.background_image_additional}/>
         </article>}
          {/*<Gametile />*/}
