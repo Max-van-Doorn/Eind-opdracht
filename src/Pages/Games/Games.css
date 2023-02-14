@@ -1,3 +1,26 @@
 .games-container{
     margin: 20px;
 }
+.game-list-header-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    margin-left: 20%;
+    margin-right: 20%;
+    border: solid black;
+    border-radius: 2em;
+    background: rgb(0,0,0);
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(190,9,9,1) 22%, rgba(250,0,0,1) 50%, rgba(233,35,1,1) 77%, rgba(0,0,0,1) 100%);
+    padding:10px;
+    align-items: center;
+}
+
+.game-list-header{
+    color:white;
+
+}
+
+.game-gif{
+    width: 40px;
+}

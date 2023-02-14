@@ -1,12 +1,17 @@
 import './Login.css'
 import InputComponent from "../../Components/InputComponent";
-import React from "react";
+import React, { useContext, useState } from 'react';
 import {useForm} from "react-hook-form";
-import jwt_decode from 'jwt-decode';
 
 function Login() {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    // const [error, toggleError] = useState(false);
+    // const { login } = useContext(AuthContext);
+    // Kijk naar de banana security pagina. Daar kan je de login en registreren pagina maken
 
     const { register, handleSubmit, formState: { errors} } = useForm();
+
 
     function handleFormSubmit(data){
         console.log(data);
@@ -25,14 +30,17 @@ function Login() {
                 <form className="form-registreren-container" onSubmit={handleSubmit(handleFormSubmit)}>
                     <fieldset className="registreren-fieldset"><strong>Gegevens </strong></fieldset>
                     <InputComponent
-                        inputType="text"
-                        inputName="name-name"
-                        inputId="name-field"
-                        inputLabel="Profiel Naam:"
+                        inputType="email"
+                        inputName="email-name"
+                        inputId="email-field"
+                        inputLabel="Email:"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                         validationRules={{
                             required: {
                                 value: true,
-                                message: 'Naam is verplicht',
+                                validate: (value) => value.includes('@','.nl', '.com'),
+                                message: 'Email is verplicht',
                             }
                         }}
                         register={register}
@@ -43,6 +51,8 @@ function Login() {
                         inputName="password-name"
                         inputId="name-field"
                         inputLabel="Wachtwoord:"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
                         validationRules={{
                             required: {
                                 value: true,

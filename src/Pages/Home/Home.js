@@ -30,11 +30,13 @@ function Home() {
 
     return (
         <>
+            <div className="data-button-container">
             <button className="data-button"
                     type="button"
                     onClick={fetchData1}>
                 Haal data op!
             </button>
+            </div>
         <div>
             <Header />
         </div>
@@ -108,8 +110,10 @@ function Home() {
             <section className="gif-container">
                 <img className="gif" src={myGif} alt="gif"/>
             </section>
-            <button> <a href={"/Games"}>Ga naar games</a>
+            <div className="games-button-container">
+            <button className="games-button"> <a className="button-link" href={"/Games"}>Klik hier voor de complete games lijst</a>
             </button>
+            </div>
         </>
     );
 }

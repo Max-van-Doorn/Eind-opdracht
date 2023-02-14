@@ -11,8 +11,11 @@
 
 
 .main-gamedata-photo{
-    width: 600px;
+    width: auto;
+    max-width: 550px;
     margin: 20px;
+    flex-grow: 0;
+    flex-shrink: 1;
 }
 
 .game-name-and-release{
@@ -28,18 +31,37 @@ margin: 20px;
     margin: 20px;
 }
 .secondary-gamedata-photo{
-    width: 400px;
+    width: auto;
+    max-width: 400px;
     margin: 20px;
 }
 
 .information-container{
     margin: 20px;
 }
-
+.reddit-logo{
+    width: 120px;
+}
 .game-link{
     margin-left: 20px;
     color: black;
     text-decoration: underline overline 3px;
     text-underline-offset: 8px;
     width: 200px;
+    margin-bottom: 20px;
+}
+
+.reddit-page-name{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.game-link-2{
+    margin-left: 20px;
+    color: black;
+    text-decoration: underline overline 3px;
+    text-underline-offset: 8px;
+    width: 300px;
 }

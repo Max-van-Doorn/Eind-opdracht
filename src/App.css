@@ -95,8 +95,12 @@ a{
 
 }
 .header-photo{
-    width:59%;
-    height: 500px;
+    width: auto;
+    height: auto;
+    max-width:59%;
+    max-height: 600px;
+    flex-grow: 0;
+    flex-shrink: 1;
     margin-top: 15px;
 }
 

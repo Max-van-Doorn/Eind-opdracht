@@ -48,14 +48,42 @@
     margin-bottom: 20px;
     border: solid red;
 }
-
+.data-button-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 20px;
+}
 .data-button{
     width: 150px;
     height: 55px;
     border-radius: 20px;
-    margin-left: 20px;
 }
 .data-button:hover{
-    background: rgb(12,241,211);
-    background: linear-gradient(90deg, rgba(12,241,211,1) 0%, rgba(66,205,26,1) 27%, rgba(0,255,86,1) 50%, rgba(14,176,139,1) 77%, rgba(3,227,209,1) 100%);
+    background: rgb(0,0,0);
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(190,9,9,1) 22%, rgba(250,0,0,1) 50%, rgba(233,35,1,1) 77%, rgba(0,0,0,1) 100%);
+    color: white;
+    text-decoration: underline black;
+    text-underline-offset: 4px;
+    cursor: pointer;
+}
+
+.games-button{
+    width: 200px;
+    height: 100px;
+    background: rgb(0,0,0);
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(190,9,9,1) 22%, rgba(250,0,0,1) 50%, rgba(233,35,1,1) 77%, rgba(0,0,0,1) 100%);
+    margin: 20px;
+    border-radius: 2em;
+    cursor: pointer;
+    text-underline-offset: 4px;
+
+}
+.button-link{
+    text-transform: uppercase;
+}
+.games-button-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }

@@ -2,6 +2,11 @@ import './Games.css'
 import GameTile2 from "../../Components/Gametile2";
 import React, {useState} from "react";
 import axios from "axios";
+import Gif from "../../Assets/8630bc35816219.57060ce298562.gif"
+import Gif2 from "../../Assets/Demon.gif"
+import Gif3 from "../../Assets/e0af3b_92c67334a79c40ce8af4e1c4f8371c87_mv2.gif"
+import Gif4 from "../../Assets/pride-of-the-red-dragons-pixel-art-red-dragon-live-wallpapers.gif"
+import Gif5 from "../../Assets/tumblr_e45e8a413c232c787580aec7499e2920_8767902b_400.gif"
 
 const apiKey = "1a3cf7a33f9e441389d7ae0d1871849e"
 
@@ -21,13 +26,24 @@ function Games() {
 
     return (
         <>
+            <div className="data-button-container">
             <button className="data-button"
                     type="button"
                     onClick={fetchData2}>
                 Haal data op!
             </button>
+            </div>
             {Object.keys(gameData).length > 0 &&
                 <section className="games-container">
+                    <div className="game-list-header-container">
+                        <img className="game-gif" src={Gif}/>
+                        <img className="game-gif" src={Gif3}/>
+                        <img className="game-gif" src={Gif2}/>
+                    <h1 className="game-list-header">Games lijst:</h1>
+                        <img className="game-gif" src={Gif2}/>
+                        <img className="game-gif" src={Gif5}/>
+                        <img className="game-gif" src={Gif4}/>
+                    </div>
                     <GameTile2
                         games={gameData}
                         image={gameData.results[1].background_image}

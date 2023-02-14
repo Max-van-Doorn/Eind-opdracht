@@ -3,6 +3,7 @@ import {useParams} from "react-router-dom";
 import axios from "axios";
 import "./Gamedata.css"
 import Gametile from "../../Components/Gametile";
+import reddit from '../../Assets/Reddit-Logo.wine.png'
 
 
 function Gamedata(){
@@ -23,14 +24,16 @@ const {id}= useParams();
 
     return (
         <>
+            <div className="data-button-container">
             <button className="data-button"
                     type="button"
                     onClick={fetchData}>
                 Haal data op!
             </button>
+            </div>
             {Object.keys(gameTile).length > 0 &&
         <article className="game-page-container" >
-            <img className="main-gamedata-photo"  src={gameTile.background_image} alt=""/>
+            <img className="main-gamedata-photo"  src={gameTile.background_image} alt="Game photo"/>
             <h1 className="game-name-and-release">{gameTile.name} | Released: {gameTile.released}</h1>
             <p className="game-info"> {gameTile.description_raw}</p>
             <div className="information-container">
@@ -40,7 +43,9 @@ const {id}= useParams();
             <p><strong>Platforms:</strong> {gameTile.parent_platforms[0].platform.name}, {gameTile.parent_platforms[1].platform.name}, {gameTile.parent_platforms[2].platform.name} </p>
             </div>
             <a className="game-link" href={gameTile.website}>Browse the game website:</a>
-            <img className="secondary-gamedata-photo" src={gameTile.background_image_additional}/>
+            <span className="reddit-page-name"><img className="reddit-logo" src={reddit} alt="Reddit logo"/> <strong>: {gameTile.reddit_name}</strong></span>
+            <a className="game-link-2" href={gameTile.reddit_url}>Browse the Reddit page of this game!</a>
+            <img className="secondary-gamedata-photo" src={gameTile.background_image_additional} alt="Game screenshot"/>
         </article>}
          {/*<Gametile />*/}
             </>
