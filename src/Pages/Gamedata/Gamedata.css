@@ -65,3 +65,9 @@ margin: 20px;
     text-underline-offset: 8px;
     width: 300px;
 }
+
+.reddit-description{
+    margin-left: 20px;
+    margin-bottom: 20px;
+    margin-right: 20%
+}

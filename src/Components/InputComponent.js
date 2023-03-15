@@ -1,16 +1,16 @@
-
-function InputComponent({ inputType, inputName, inputLabel, inputId, validationRules, register, errors }) {
+function InputComponent({inputType, inputName, inputLabel, inputId, onChange}) {
     return (
         <>
             <label className="label" htmlFor={inputId}>
                 {inputLabel}
-                <input className="registreren-profile-input" placeholder={"Type hier je "+inputLabel}
-                    type={inputType}
-                    id={inputId}
-                    {...register(inputName, validationRules)}
+                <input className="registreren-profile-input" placeholder={"Type hier je " + inputLabel}
+                       type={inputType}
+                       id={inputId}
+                       name={inputName}
+                       onChange={onChange}
+
                 />
             </label>
-            {errors[inputName] && <p>{errors[inputName].message}</p>}
         </>
     );
 }

@@ -82,6 +82,13 @@
 .button-link{
     text-transform: uppercase;
 }
+
+.button-link:hover{
+    color:#CAA805 ;
+    background-color: black;
+    border: solid black;
+    border-radius: 6px;
+}
 .games-button-container{
     display: flex;
     flex-direction: row;

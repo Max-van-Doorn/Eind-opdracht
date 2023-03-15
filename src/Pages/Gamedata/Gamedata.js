@@ -44,6 +44,7 @@ const {id}= useParams();
             </div>
             <a className="game-link" href={gameTile.website}>Browse the game website:</a>
             <span className="reddit-page-name"><img className="reddit-logo" src={reddit} alt="Reddit logo"/> <strong>: {gameTile.reddit_name}</strong></span>
+            <p className="reddit-description">"{gameTile.reddit_description}"</p>
             <a className="game-link-2" href={gameTile.reddit_url}>Browse the Reddit page of this game!</a>
             <img className="secondary-gamedata-photo" src={gameTile.background_image_additional} alt="Game screenshot"/>
         </article>}

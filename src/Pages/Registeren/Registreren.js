@@ -1,17 +1,44 @@
 import "./Registeren.css"
-import { useForm } from 'react-hook-form'
-import React from "react";
+import React, { useEffect, useState} from "react";
 import InputComponent from "../../Components/InputComponent";
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios'
+import {useForm} from "react-hook-form";
 
 
 function Registeren() {
-    const { register, handleSubmit, formState: { errors} } = useForm();
+    const [email, setEmail] = useState('');
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
 
-    function handleFormSubmit(data){
-        console.log(data);
+    const [error, toggleError] = useState(false);
+    const [loading, toggleLoading] = useState(false);
+    const navigate = useNavigate();
+
+    // const { register } = useForm();
+
+    async function handleSubmit(e) {
+        e.preventDefault();
+        toggleError(false);
+        toggleLoading(true);
+        console.log(email, password, username)
+
+        try {
+            const response = await axios.post('https://frontend-educational-backend.herokuapp.com/api/auth/signup', {
+                email: email,
+                password: password,
+                username: username,
+                role: ["user"]
+            });
+            console.log('REGISTREREN', response.data);
+            navigate('/login');
+        } catch(e) {
+            console.error(e);
+            toggleError(true);
+        }
+
+        toggleLoading(false);
     }
-
-    console.log('ERRORS', errors);
 
     return (
         <>
@@ -21,43 +48,46 @@ function Registeren() {
                 </div>
             </section>
             <section>
-                <form className="form-registreren-container" onSubmit={handleSubmit(handleFormSubmit)}>
+                <form className="form-registreren-container" onSubmit={handleSubmit}>
                     <fieldset className="registreren-fieldset"><strong>Gegevens </strong></fieldset>
                         <InputComponent
                             inputType="text"
                             inputName="name-name"
                             inputId="name-field"
                             inputLabel="Profiel Naam:"
-                            validationRules={{
+                            value={username}
+                            rules={{
                                 required: {
                                     value: true,
                                     message: 'Naam is verplicht',
                                 }
                             }}
-                            register={register}
-                            errors={errors}
+                            onChange={(e) => setUsername(e.target.value)}
                         />
+                    {error && <p>hi</p>}
                         <InputComponent
                             inputType="text"
                             inputName="email-name"
-                            inputId="name-field"
+                            inputId="email-field"
                             inputLabel="Email:"
-                            validationRules={{
+                            value={email}
+                            rules={{
                                 required: {
                                     value: true,
                                     validate: (value) => value.includes('@'),
                                     message: 'Email is verplicht',
                                 }
                             }}
-                            register={register}
-                            errors={errors}
+                            onChange={(e) => setEmail(e.target.value)}
                         />
+                    {error && <p>hi</p>}
                         <InputComponent
                             inputType="password"
                             inputName="password-name"
-                            inputId="name-field"
+                            inputId="password-field"
                             inputLabel="Wachtwoord:"
-                            validationRules={{
+                            value={password}
+                            rules={{
                                 required: {
                                     value: true,
                                     message: 'Wachtwoord is verplicht',
@@ -67,68 +97,12 @@ function Registeren() {
                                     message: 'Moet minimaal 6 karakters bevatten'
                                 }
                             }}
-                            register={register}
-                            errors={errors}
+                            onChange={(e) => setPassword(e.target.value)}
                         />
-                    {/*<label className="profile-label" htmlFor="profile-field">*/}
-                    {/*    Profile name: </label>*/}
-                    {/*    <input className="registreren-profile-input" placeholder="Type your profile name"*/}
-                    {/*        type="text"*/}
-                    {/*        id="profile-field"*/}
-                    {/*        {...register("profile",{*/}
-                    {/*            required: "Naam is verplicht",*/}
-                    {/*            minLength: {*/}
-                    {/*                value: 3,*/}
-                    {/*                message: "Naam moet minimaal 3 karakters bevatten"*/}
-                    {/*            },*/}
-                    {/*            })}*/}
-                    {/*        />*/}
-                    {/*    {errors.profile && <p>{errors.profile.message}</p>}*/}
-
-                    {/*<label className="email-label" htmlFor="email-field">*/}
-                    {/*    Email:  </label>*/}
-                    {/*    <input className="registreren-email-input" placeholder="Type your email adress"*/}
-                    {/*        type="text"*/}
-                    {/*        id="email-field"*/}
-                    {/*        {...register("email",{*/}
-                    {/*            required: {*/}
-                    {/*                value: true,*/}
-                    {/*                message: "Dit veld is verplicht"*/}
-                    {/*            },*/}
-                    {/*            minLength: {*/}
-                    {/*                value: 4,*/}
-                    {/*                message: "Vul een geldig mail adres in"*/}
-                    {/*            },*/}
-                    {/*            validate: (value) => value.includes('@'),*/}
-                    {/*        })}*/}
-                    {/*    />*/}
-                    {/*    {errors.email && <p>{errors.email.message}</p>}*/}
-
-                    {/*<label className="password-label" htmlFor="password-field">*/}
-                    {/*    Password:  </label>*/}
-                    {/*    <input className="registreren-password-input" placeholder="Type your password"*/}
-                    {/*        type="password"*/}
-                    {/*        id="password-field"*/}
-                    {/*        {...register("password",*/}
-                    {/*            {*/}
-                    {/*            required: {*/}
-                    {/*                value: true,*/}
-                    {/*                message: "* Dit veld is verplicht",*/}
-                    {/*            },*/}
-                    {/*            minLength: {*/}
-                    {/*                value: 6,*/}
-                    {/*                message: "Moet minstens 6 karakters bevatten",*/}
-                    {/*            },*/}
-                    {/*                maxLength: {*/}
-                    {/*                value: 20,*/}
-                    {/*                    message: "Mag maximaal 20 karakters bevatten"*/}
-                    {/*                },*/}
-                    {/*        })}*/}
-                    {/*    />*/}
-                    {/*    {errors.password && <p>{errors.password.message}</p>}*/}
+                    {error && <p>Werkt niet!</p>}
                     <p><strong>-----------------------------------------------------------------------------------------</strong></p>
                     <p className="registreren-text">Heb je al een account? klik dan <a className="registreren-link" href={"/Login"}>hier</a>!</p>
-                    <button className="registreren-button" type="submit">
+                    <button className="registreren-button" type="submit" disabled={loading}>
                         <strong>Versturen</strong>
                     </button>
                 </form>
