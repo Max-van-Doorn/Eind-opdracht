@@ -27,10 +27,10 @@ function App() {
                   <Route path="/Games" element={<Games/>}/>
                   <Route path="/Profile" element={<Profile/>}/>
            </Routes>
-              <div className="footer-container">
-              <footer className="footer-about-us">GameChecker - Max van Doorn</footer>
-              </div>
        </div>
+          <div className="footer-container">
+              <footer className="footer-about-us">GameChecker - Max van Doorn</footer>
+          </div>
       </>
   );
 }

@@ -20,7 +20,7 @@ function Login() {
                 username: username,
                 password: password,
             });
-            console.log('GELUKT INLOGGEN?', result.data);
+            console.log('Inloggen is gelukt!', result.data);
 
             login(result.data.accessToken);
 
@@ -60,7 +60,7 @@ function Login() {
                         inputType="password"
                         inputName="password-name"
                         inputId="password-field"
-                        inputLabel="Wachtwoord:"
+                        inputLabel="Password:"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         // validationRules={{
@@ -75,11 +75,12 @@ function Login() {
                         // }}
                         // register={register}
                         // errors={errors}
-                    />
+/>
+                        {error && <p className="login-error">De ingevulde gegevens kloppen niet!</p>}
                     <p><strong>-----------------------------------------------------------------------------------------</strong></p>
                     <p className="registreren-text">Heb je nog geen account? klik dan <a className="registreren-link" href={"/Registreren"}>hier</a>!</p>
                     <button className="registreren-button" type="submit">
-                        <strong>Versturen</strong>
+                        <strong>Login</strong>
                     </button>
                 </form>
             </section>

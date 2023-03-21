@@ -31,22 +31,20 @@ function AuthContextProvider({ children }) {
     function login(JWT) {
         localStorage.setItem('token', JWT);
         const decoded = jwt_decode(JWT);
-
-        // fetchUserData(decoded.sub, JWT, '/Profile');
-        // link de gebruiker door naar de profielpagina
         history('/Profile');
     }
 
     function logout() {
         localStorage.clear();
+        window.location.reload();
         toggleIsAuth({
             isAuth: false,
             user: null,
             status: 'done',
+
         });
 
         console.log('Gebruiker is uitgelogd!');
-        history('/');
     }
 
     // Omdat we deze functie in login- en het mounting-effect gebruiken, staat hij hier gedeclareerd!

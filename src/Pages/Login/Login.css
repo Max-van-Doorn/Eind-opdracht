@@ -80,3 +80,7 @@
 /*    border: solid black;*/
 /*    width: 100px;*/
 /*}*/
+
+.login-error{
+    color: red;
+}

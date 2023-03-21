@@ -4,6 +4,7 @@ import InputComponent from "../../Components/InputComponent";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 import {useForm} from "react-hook-form";
+import inputComponent from "../../Components/InputComponent";
 
 
 function Registeren() {
@@ -50,11 +51,13 @@ function Registeren() {
             <section>
                 <form className="form-registreren-container" onSubmit={handleSubmit}>
                     <fieldset className="registreren-fieldset"><strong>Gegevens </strong></fieldset>
+                    <p className="registeren-message"><strong>* Je password moet minimaal 6 karakters bevatten *</strong></p>
+                    <p className="registeren-message"><strong>* Je email moet een @ bevatten. *</strong> </p>
                         <InputComponent
                             inputType="text"
                             inputName="name-name"
                             inputId="name-field"
-                            inputLabel="Profiel Naam:"
+                            inputLabel="Username:"
                             value={username}
                             rules={{
                                 required: {
@@ -64,7 +67,6 @@ function Registeren() {
                             }}
                             onChange={(e) => setUsername(e.target.value)}
                         />
-                    {error && <p>hi</p>}
                         <InputComponent
                             inputType="text"
                             inputName="email-name"
@@ -75,17 +77,16 @@ function Registeren() {
                                 required: {
                                     value: true,
                                     validate: (value) => value.includes('@'),
-                                    message: 'Email is verplicht',
+                                    errormessage: 'Email is verplicht',
                                 }
                             }}
                             onChange={(e) => setEmail(e.target.value)}
                         />
-                    {error && <p>hi</p>}
                         <InputComponent
                             inputType="password"
                             inputName="password-name"
                             inputId="password-field"
-                            inputLabel="Wachtwoord:"
+                            inputLabel="Password:"
                             value={password}
                             rules={{
                                 required: {
@@ -99,11 +100,11 @@ function Registeren() {
                             }}
                             onChange={(e) => setPassword(e.target.value)}
                         />
-                    {error && <p>Werkt niet!</p>}
+                    {error && <p className="login-error">Enkele gegevens zijn niet volledig!</p>}
                     <p><strong>-----------------------------------------------------------------------------------------</strong></p>
                     <p className="registreren-text">Heb je al een account? klik dan <a className="registreren-link" href={"/Login"}>hier</a>!</p>
                     <button className="registreren-button" type="submit" disabled={loading}>
-                        <strong>Versturen</strong>
+                        <strong>Registreer</strong>
                     </button>
                 </form>
             </section>

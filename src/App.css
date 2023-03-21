@@ -15,6 +15,10 @@ p{
 }
 body{
     background-color: gainsboro;
+    min-height: 100vh;
+    height: 100%;
+    position: relative;
+    flex-grow: 1;
 
 }
 a:hover{
@@ -55,10 +59,15 @@ a{
 }
 
 .login{
-    margin-right: 1em;
     color: white;
     padding: 10px;
     background-color: black;
+}
+
+.profile{
+    padding: 10px;
+    background-color: black;
+    margin-right: 1em;
 }
 .about-us{
     padding: 10px;

@@ -1,18 +1,15 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthContext';
 import axios from 'axios';
 import './Profile.css'
 
 function Profile() {
     const [profileData, setProfileData] = useState({});
-    const {user} = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
     const { isAuth, logout } = useContext(AuthContext);
 
     useEffect(() => {
-        // we halen de pagina-content op in de mounting-cycle
         async function fetchProfileData() {
-            // haal de token uit de Local Storage om in het GET-request te bewijzen dat we geauthoriseerd zijn
             const token = localStorage.getItem('token');
 
             try {
@@ -36,32 +33,37 @@ function Profile() {
             }
         }
 
+
         fetchProfileData();
     }, [])
 
     return (
         <>
         <div className="profile-container">
-        <h1 className="profile-text" >Welkom! Je bent nu ingelogd :)</h1>
-            <div className="logout-button-container">
-                <button className="logout-button"
-                        type="button"
-                        onClick={logout}
-                >
-                    Logout
-                </button>
-            </div>
+            <h1 className="profile-title">Profielpagina</h1>
+            {Object.keys(profileData).length > 0 &&
+                <section>
+                    <h1 className="profile-text" >Hallo "{profileData.username}" ! Je bent ingelogd :)</h1>
+                </section>
+            }
+            {Object.keys(profileData).length > 0 &&
+                <section>
+                    <h2 className="registreren-fieldset">Gegevens: </h2>
+                    <p><strong>Username:</strong> {profileData.username}</p>
+                    <p><strong>Email:</strong> {profileData.email}</p>
+                </section>
+            }
+            {Object.keys(profileData).length > 0 &&
+                <div className="logout-button-container">
+                    <button className="registreren-button"
+                            type="button"
+                            onClick={logout}
+                    >
+                        Logout
+                    </button>
+                </div>
+            }
         </div>
-        <h1>Profielpagina</h1>
-    <section>
-        <h2>Gegevens</h2>
-
-        {/*Waarom werkt dit niet???*/}
-
-        {/*<p><strong>Gebruikersnaam:</strong> {user.username}</p>*/}
-        {/*<p><strong>Email:</strong> {user.email}</p>*/}
-
-    </section>
             </>
     )
 }

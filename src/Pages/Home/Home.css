@@ -58,6 +58,7 @@
     width: 150px;
     height: 55px;
     border-radius: 20px;
+    margin-bottom: 20px;
 }
 .data-button:hover{
     background: rgb(0,0,0);

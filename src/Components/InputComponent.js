@@ -1,4 +1,4 @@
-function InputComponent({inputType, inputName, inputLabel, inputId, onChange}) {
+function InputComponent({inputType, inputName, inputLabel, inputId, onChange, error}) {
     return (
         <>
             <label className="label" htmlFor={inputId}>
@@ -8,6 +8,7 @@ function InputComponent({inputType, inputName, inputLabel, inputId, onChange}) {
                        id={inputId}
                        name={inputName}
                        onChange={onChange}
+                       onError={error}
 
                 />
             </label>
