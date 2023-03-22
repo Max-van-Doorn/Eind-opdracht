@@ -4,6 +4,10 @@
     justify-content: center;
     align-items: center;
     background-color: gainsboro;
+    border-right: solid  black;
+    border-left: solid black;
+    margin-left: 20%;
+    margin-right: 20%;
 }
 
 .registreren-title {
@@ -34,7 +38,12 @@
     justify-content: center;
     align-items: center;
     background-color: gainsboro;
+    border-left: solid black;
+    border-right: solid black;
     border-bottom: solid black;
+    margin-left: 20%;
+    margin-right: 20%;
+
 
 }
 

@@ -1,6 +1,6 @@
 import './Games.css'
 import GameTile2 from "../../Components/Gametile2";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import axios from "axios";
 import Gif from "../../Assets/8630bc35816219.57060ce298562.gif"
 import Gif2 from "../../Assets/Demon.gif"
@@ -9,11 +9,11 @@ import Gif4 from "../../Assets/pride-of-the-red-dragons-pixel-art-red-dragon-liv
 import Gif5 from "../../Assets/tumblr_e45e8a413c232c787580aec7499e2920_8767902b_400.gif"
 
 const apiKey = "1a3cf7a33f9e441389d7ae0d1871849e"
-
 function Games() {
     const [gameData, setGameData] = useState({});
 
-    async function fetchData2(){
+    useEffect(() => {
+    async function fetchData(){
         try {
             const response = await axios.get (`https://api.rawg.io/api/games?key=${apiKey}`);
 
@@ -23,26 +23,22 @@ function Games() {
             console.error(e);
         }
     }
-
+    fetchData();
+}, []);
     return (
         <>
             <div className="data-button-container">
-            <button className="data-button"
-                    type="button"
-                    onClick={fetchData2}>
-                Haal data op!
-            </button>
             </div>
             {Object.keys(gameData).length > 0 &&
                 <section className="games-container">
                     <div className="game-list-header-container">
-                        <img className="game-gif" src={Gif}/>
-                        <img className="game-gif" src={Gif3}/>
-                        <img className="game-gif" src={Gif2}/>
+                        <img className="game-gif" src={Gif} alt="Gif"/>
+                        <img className="game-gif" src={Gif3} alt="Gif"/>
+                        <img className="game-gif" src={Gif2} alt="Gif"/>
                     <h1 className="game-list-header">Games lijst:</h1>
-                        <img className="game-gif" src={Gif2}/>
-                        <img className="game-gif" src={Gif5}/>
-                        <img className="game-gif" src={Gif4}/>
+                        <img className="game-gif" src={Gif2} alt="Gif"/>
+                        <img className="game-gif" src={Gif5} alt="Gif"/>
+                        <img className="game-gif" src={Gif4} alt="Gif"/>
                     </div>
                     <GameTile2
                         games={gameData}

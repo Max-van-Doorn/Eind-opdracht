@@ -2,11 +2,13 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../Context/AuthContext';
 import axios from 'axios';
 import './Profile.css'
+import myGif from '../../Assets/empty-shelves-john-travolta.gif'
 
 function Profile() {
     const [profileData, setProfileData] = useState({});
     const { user } = useContext(AuthContext);
     const { isAuth, logout } = useContext(AuthContext);
+
 
     useEffect(() => {
         async function fetchProfileData() {
@@ -37,13 +39,27 @@ function Profile() {
         fetchProfileData();
     }, [])
 
+
+
     return (
         <>
-        <div className="profile-container">
-            <h1 className="profile-title">Profielpagina</h1>
+            <div className="profile-container">
+                {Object.keys(profileData) >= 0 &&
+                    <h1 className="profile-title">Profielpagina</h1>
+                }
+                {Object.keys(profileData) >= 0 &&
+                    <h3 className="Login-required"> Whoops! Je bent niet ingelogd. Log in om gegevens te zien!</h3>
+                }
+                {Object.keys(profileData) >= 0 &&
+                    <img className="empty-gif" src={myGif} alt="gif"/>
+                }
+                {Object.keys(profileData).length > 0 &&
+                    <h1 className="profile-title">Profielpagina</h1>
+                }
+
             {Object.keys(profileData).length > 0 &&
                 <section>
-                    <h1 className="profile-text" >Hallo "{profileData.username}" ! Je bent ingelogd :)</h1>
+                    <h2 className="profile-text" >Hallo "{profileData.username}" ! Je bent ingelogd :)</h2>
                 </section>
             }
             {Object.keys(profileData).length > 0 &&

@@ -18,7 +18,8 @@ function SearchBar({ setGameHandler }) {
                 placeholder="Zoek een game"
             />
 
-            <button type="button">
+            <button
+                type="button">
                 Zoek
             </button>
         </form>

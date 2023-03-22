@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Header from "../../Components/Header";
 import axios, {get} from "axios";
 import './Home.css'
@@ -12,31 +12,27 @@ const apiKey = "1a3cf7a33f9e441389d7ae0d1871849e"
 function Home() {
     const [gameData, setGameData] = useState({});
     const [gameLocation, setGameLocation] = useState("")
+    useEffect(() => {
+        async function fetchData1() {
+            try {
+                const response = await axios.get(`https://api.rawg.io/api/games?key=${apiKey}`);
 
-    async function fetchData1(){
-        try {
-            const response = await axios.get (`https://api.rawg.io/api/games?key=${apiKey}`);
 
+                // (Hoe zorg ik ervoor dat de API telkens veranderd? Wellicht in Edhub te vinden op hoofdstuk 6.3,6.4 en 6.5?)
+                // Ook bespreken of ik eerst de backend moet koppelen voordat ik de gebruikers kan aanmaken? (hoe koppel ik de backend?)
 
-            // (Hoe zorg ik ervoor dat de API telkens veranderd? Wellicht in Edhub te vinden op hoofdstuk 6.3,6.4 en 6.5?)
-            // Ook bespreken of ik eerst de backend moet koppelen voordat ik de gebruikers kan aanmaken? (hoe koppel ik de backend?)
+                console.log(response.data);
+                setGameData(response.data)
+            } catch (e) {
+                console.error(e);
+            }
 
-            console.log(response.data);
-            setGameData(response.data)
-        } catch (e){
-            console.error(e);
         }
-    }
+        fetchData1();
+    }, []);
 
     return (
         <>
-            <div className="data-button-container">
-            <button className="data-button"
-                    type="button"
-                    onClick={fetchData1}>
-                Haal data op!
-            </button>
-            </div>
         <div>
             <Header />
         </div>
@@ -45,22 +41,25 @@ function Home() {
             {Object.keys(gameData).length > 0 &&
                 <section className="section">
                     <article className="article">
+                        <Link to={`/Gamedata/${gameData.results[0].id}`}>
                         <img className="screenshot" src={gameData.results[0].background_image} />
-                        <Link to={`/Gamedata/${gameData.results[0].id}`}>NAAR DE DETAILS</Link>
+                        </Link>
                         <h1>{gameData.results[0].name}</h1>
                         {/*<p><strong>{gameData.developers[0].name}</strong></p>*/}
                         <p className="text"><strong>Released:</strong> {gameData.results[0].released}</p>
                     </article>
                     <article className="article">
+                        <Link to={`/Gamedata/${gameData.results[1].id}`}>
                         <img className="screenshot" src={gameData.results[1].background_image}/>
-                        <Link to={`/Gamedata/${gameData.results[1].id}`}>NAAR DE DETAILS</Link>
+                        </Link>
                         <h1>{gameData.results[1].name}</h1>
                         {/*<p><strong>{gameData.developers[0].name}</strong></p>*/}
                         <p className="text"><strong>Released:</strong> {gameData.results[1].released}</p>
                     </article>
                     <article className="article">
+                        <Link to={`/Gamedata/${gameData.results[18].id}`}>
                         <img className="screenshot" src={gameData.results[18].background_image}/>
-                        <Link to={`/Gamedata/${gameData.results[18].id}`}>NAAR DE DETAILS</Link>
+                        </Link>
                         <h1>{gameData.results[18].name}</h1>
                         {/*<p><strong>{gameData.developers[0].name}</strong></p>*/}
                         <p className="text"><strong>Released:</strong> {gameData.results[18].released}</p>

@@ -16,7 +16,6 @@ p{
 body{
     background-color: gainsboro;
     min-height: 100vh;
-    height: 100%;
     position: relative;
     flex-grow: 1;
 

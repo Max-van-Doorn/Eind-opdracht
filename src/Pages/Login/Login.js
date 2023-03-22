@@ -34,7 +34,7 @@ function Login() {
         <>
             <section>
                 <div className={"registreren-container"}>
-                    <h1 className={"registreren-title"}>Login</h1>
+                    <h1 className={"registreren-title"}>Inloggen</h1>
                 </div>
             </section>
             <section>
@@ -47,14 +47,7 @@ function Login() {
                         inputLabel="Username:"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
-                        // validationRules={{
-                        //     required: {
-                        //         value: true,
-                        //         message: 'Username is verplicht',
-                        //     }
-                        // }}
-                        // register={register}
-                        // errors={errors}
+
                     />
                     <InputComponent
                         inputType="password"
@@ -63,18 +56,7 @@ function Login() {
                         inputLabel="Password:"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
-                        // validationRules={{
-                        //     required: {
-                        //         value: true,
-                        //         message: 'Wachtwoord is verplicht',
-                        //     },
-                        //     minLength: {
-                        //         value: 6,
-                        //         message: 'Moet minimaal 6 karakters bevatten'
-                        //     }
-                        // }}
-                        // register={register}
-                        // errors={errors}
+
 />
                         {error && <p className="login-error">De ingevulde gegevens kloppen niet!</p>}
                     <p><strong>-----------------------------------------------------------------------------------------</strong></p>

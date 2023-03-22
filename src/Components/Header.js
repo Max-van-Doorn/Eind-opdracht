@@ -5,7 +5,7 @@ const Header = () =>  {
 
     return (
         <div className={"header"}>
-            <img className={"header-photo"} src={img2} alt={"Header-Photo"}/>
+            <img className={"header-photo"} src={img2} alt="Header-Photo"/>
         </div>
 
 

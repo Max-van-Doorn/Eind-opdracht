@@ -28,9 +28,7 @@ function App() {
                   <Route path="/Profile" element={<Profile/>}/>
            </Routes>
        </div>
-          <div className="footer-container">
               <footer className="footer-about-us">GameChecker - Max van Doorn</footer>
-          </div>
       </>
   );
 }

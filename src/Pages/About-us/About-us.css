@@ -1,5 +1,4 @@
 .about-us-section{
-    border-bottom: solid black;
     background-color: gainsboro;
     display: flex;
     flex-direction: column;
@@ -12,6 +11,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-left: solid black;
+    border-right: solid black;
+    border-bottom: solid black;
+    margin-left: 20%;
+    margin-right: 20%;
 
 }
 
@@ -20,6 +24,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-left: solid  black;
+    border-right: solid black;
+    margin-left: 20%;
+    margin-right: 20%;
 }
 .AboutUs-title {
     /*display: flex;*/
@@ -48,7 +56,9 @@
     height: 60px;
 }
 footer{
-    position: relative;
+    position: absolute;
+    right: 0;
     bottom: 0;
+    left: 0;
     width: 100%;
 }

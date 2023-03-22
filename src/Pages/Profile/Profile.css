@@ -6,7 +6,9 @@
     height: 100%;
     margin-left: 20%;
     margin-right: 20%;
-    border:  solid black;
+    border-left:  solid black;
+    border-right: solid black;
+    border-bottom: Solid black;
     flex-shrink: 1;
     flex-grow: 0;
 }
@@ -49,4 +51,17 @@
     border-radius: 7px;
     cursor: pointer;
     margin-bottom: 30px;
+}
+
+.Login-required{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-decoration: underline;
+}
+
+.empty-gif{
+    margin-bottom: 40px;
+    width: 300px;
+    flex-shrink: 1;
+    flex-grow: 0;
 }

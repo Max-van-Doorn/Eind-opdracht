@@ -1,13 +1,8 @@
 import React from 'react'
-import "./Gametile2.css"
+import "./Gametile/Gametile2.css"
 import {Link} from "react-router-dom";
 
-const GameTile2 = (props) => {
-    const games = props.games;
-    const title = props.title;
-    const released = props.released
-    const image = props.image;
-    const link = props.link;
+function GameTile2({title, link, released, image }) {
 
     return(
         <article className="gametile2-outer-container">
