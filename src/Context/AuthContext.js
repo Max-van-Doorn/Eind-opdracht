@@ -47,10 +47,8 @@ function AuthContextProvider({ children }) {
         console.log('Gebruiker is uitgelogd!');
     }
 
-    // Omdat we deze functie in login- en het mounting-effect gebruiken, staat hij hier gedeclareerd!
     async function fetchUserData(id, token, redirectUrl) {
         try {
-            // haal gebruikersdata op met de token en id van de gebruiker
             const result = await axios.get(`https://frontend-educational-backend.herokuapp.com`, {
                 headers: {
                     "Content-Type": "application/json",

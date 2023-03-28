@@ -2,22 +2,19 @@ import React, {useState, useEffect} from "react";
 import {useParams} from "react-router-dom";
 import axios from "axios";
 import "./Gamedata.css"
-import Gametile from "../../Components/Gametile/Gametile";
 import reddit from '../../Assets/Reddit-Logo.wine.png'
 
 
 function Gamedata(){
     const [gameTile, setGameTile] = useState({})
-    const apiKey = "1a3cf7a33f9e441389d7ae0d1871849e"
 const {id}= useParams();
     useEffect(() => {
     async function fetchData(){
         try {
-            const result = await axios.get (`https://api.rawg.io/api/games/${id}?key=${apiKey}`);
-            const result2 = await axios.get(`https://api.rawg.io/api/games/${id}/screenshots?key=${apiKey}`)
+            const result = await axios.get (`https://api.rawg.io/api/games/${id}?key=${process.env.REACT_APP_API_KEY}`);
 
-            console.log(result.data, result2);
-            setGameTile(result.data,)
+            console.log(result.data);
+            setGameTile(result.data)
         } catch (e){
             console.error(e);
         }
@@ -43,7 +40,6 @@ const {id}= useParams();
             <a className="game-link-2" href={gameTile.reddit_url}>Browse the Reddit page of this game!</a>
             <img className="secondary-gamedata-photo" src={gameTile.background_image_additional} alt="Game screenshot"/>
         </article>}
-         {/*<Gametile />*/}
             </>
     )
 }

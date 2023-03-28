@@ -8,14 +8,13 @@ import Gif3 from "../../Assets/e0af3b_92c67334a79c40ce8af4e1c4f8371c87_mv2.gif"
 import Gif4 from "../../Assets/pride-of-the-red-dragons-pixel-art-red-dragon-live-wallpapers.gif"
 import Gif5 from "../../Assets/tumblr_e45e8a413c232c787580aec7499e2920_8767902b_400.gif"
 
-const apiKey = "1a3cf7a33f9e441389d7ae0d1871849e"
 function Games() {
     const [gameData, setGameData] = useState({});
 
     useEffect(() => {
     async function fetchData(){
         try {
-            const response = await axios.get (`https://api.rawg.io/api/games?key=${apiKey}`);
+            const response = await axios.get (`https://api.rawg.io/api/games?key=${process.env.REACT_APP_API_KEY}`);
 
             console.log(response.data);
             setGameData(response.data)

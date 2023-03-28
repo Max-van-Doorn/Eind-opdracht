@@ -7,7 +7,6 @@ import SearchBar from "../../Components/Searchbar";
 import GameTile2 from "../../Components/Gametile2";
 import myGif from '../../Assets/Gaming-gif.gif';
 
-const apiKey = "1a3cf7a33f9e441389d7ae0d1871849e"
 
 function Home() {
     const [gameData, setGameData] = useState({});
@@ -15,18 +14,13 @@ function Home() {
     useEffect(() => {
         async function fetchData1() {
             try {
-                const response = await axios.get(`https://api.rawg.io/api/games?key=${apiKey}`);
-
-
-                // (Hoe zorg ik ervoor dat de API telkens veranderd? Wellicht in Edhub te vinden op hoofdstuk 6.3,6.4 en 6.5?)
-                // Ook bespreken of ik eerst de backend moet koppelen voordat ik de gebruikers kan aanmaken? (hoe koppel ik de backend?)
+                const response = await axios.get(`https://api.rawg.io/api/games?key=${process.env.REACT_APP_API_KEY}`);
 
                 console.log(response.data);
                 setGameData(response.data)
             } catch (e) {
                 console.error(e);
             }
-
         }
         fetchData1();
     }, []);
@@ -37,7 +31,6 @@ function Home() {
             <Header />
         </div>
             <SearchBar setGameHandler={setGameLocation}/>
-            {/*dit is een test versie. Dit is puur om te zien of de API werkt.*/}
             {Object.keys(gameData).length > 0 &&
                 <section className="section">
                     <article className="article">
@@ -45,7 +38,6 @@ function Home() {
                         <img className="screenshot" src={gameData.results[0].background_image} />
                         </Link>
                         <h1>{gameData.results[0].name}</h1>
-                        {/*<p><strong>{gameData.developers[0].name}</strong></p>*/}
                         <p className="text"><strong>Released:</strong> {gameData.results[0].released}</p>
                     </article>
                     <article className="article">
@@ -53,7 +45,6 @@ function Home() {
                         <img className="screenshot" src={gameData.results[1].background_image}/>
                         </Link>
                         <h1>{gameData.results[1].name}</h1>
-                        {/*<p><strong>{gameData.developers[0].name}</strong></p>*/}
                         <p className="text"><strong>Released:</strong> {gameData.results[1].released}</p>
                     </article>
                     <article className="article">
@@ -61,7 +52,6 @@ function Home() {
                         <img className="screenshot" src={gameData.results[18].background_image}/>
                         </Link>
                         <h1>{gameData.results[18].name}</h1>
-                        {/*<p><strong>{gameData.developers[0].name}</strong></p>*/}
                         <p className="text"><strong>Released:</strong> {gameData.results[18].released}</p>
                     </article>
                 </section>
@@ -110,7 +100,7 @@ function Home() {
                 <img className="gif" src={myGif} alt="gif"/>
             </section>
             <div className="games-button-container">
-            <button className="games-button"> <a className="button-link" href={"/Games"}>Klik hier voor de complete games lijst</a>
+            <button className="games-button" type="button"> <a className="button-link" href={"/Games"}>Klik hier voor de complete games lijst</a>
             </button>
             </div>
         </>

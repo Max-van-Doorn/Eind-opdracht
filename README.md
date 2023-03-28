@@ -89,7 +89,7 @@ Installatie 4: npm
 
 De API key
 •	Maak een “.env” bestand aan in de root folder (buiten de src map)
-•	Voeg in het .env bestand de API key toe. Deze API key staat in de volledige installatie handleiding.
+•	Voeg in het .env bestand de REACT_APP_API_KEY="API key" toe (Geen spatie ertussen). Deze API key staat in de volledige installatie handleiding.
 •	Om te controleren of de website nu werkt met alle data van de API type je “npm run build”
 •	Daarna kan je gewoon de command “npm start” doen.
 

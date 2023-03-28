@@ -3,8 +3,6 @@ import React, { useEffect, useState} from "react";
 import InputComponent from "../../Components/InputComponent";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
-import {useForm} from "react-hook-form";
-import inputComponent from "../../Components/InputComponent";
 
 
 function Registeren() {
@@ -15,8 +13,6 @@ function Registeren() {
     const [error, toggleError] = useState(false);
     const [loading, toggleLoading] = useState(false);
     const navigate = useNavigate();
-
-    // const { register } = useForm();
 
     async function handleSubmit(e) {
         e.preventDefault();

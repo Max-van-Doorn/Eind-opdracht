@@ -8,7 +8,7 @@ function GameTile2({title, link, released, image }) {
         <article className="gametile2-outer-container">
             <div className="gametile2-inner-container">
                 <Link to={`/Gamedata/${ link }`}>
-                <img className="gametile2-image" src={image}/></Link>
+                <img className="gametile2-image" src={image} alt="Image"/></Link>
          <h1 className="gametile2-title">{ title }</h1>
                 <p className="gametile2-released"><strong> Released: </strong>{ released}</p>
                 </div>
