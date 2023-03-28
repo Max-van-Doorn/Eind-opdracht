@@ -3,7 +3,7 @@ import Header from "../../Components/Header";
 import axios, {get} from "axios";
 import './Home.css'
 import {Link} from "react-router-dom";
-import SearchBar from "../../Components/Searchbar";
+import SearchBar from "../../Components/Searchbar/Searchbar";
 import GameTile2 from "../../Components/Gametile2";
 import myGif from '../../Assets/Gaming-gif.gif';
 
@@ -12,7 +12,7 @@ function Home() {
     const [gameData, setGameData] = useState({});
     const [gameLocation, setGameLocation] = useState("")
     useEffect(() => {
-        async function fetchData1() {
+        async function fetchData() {
             try {
                 const response = await axios.get(`https://api.rawg.io/api/games?key=${process.env.REACT_APP_API_KEY}`);
 
@@ -22,7 +22,7 @@ function Home() {
                 console.error(e);
             }
         }
-        fetchData1();
+        fetchData();
     }, []);
 
     return (

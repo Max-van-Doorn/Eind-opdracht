@@ -1,0 +1,24 @@
+.searchbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 20px;
+    height: 50px;
+}
+
+.searchbar input {
+    border-radius: 2px 0 0 2px;
+    border: none;
+    padding: 8px 16px;
+    width: 30%;
+    outline: none;
+}
+
+.searchbar-icon {
+    border-radius: 0 2px 2px 0;
+    width: 45px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    outline: none;
+}

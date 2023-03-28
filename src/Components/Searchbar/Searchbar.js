@@ -1,4 +1,6 @@
 import React, {  useState } from 'react';
+import "./Searchbar.css"
+import searchicon from "../../Assets/search icon.png"
 
 function SearchBar({ setGameHandler }) {
     const [query, setQuery] = useState('');
@@ -19,8 +21,8 @@ function SearchBar({ setGameHandler }) {
             />
 
             <button
-                type="button">
-                Zoek
+                type="submit">
+                <img className="searchbar-icon" src={searchicon} alt="Search-icon" />
             </button>
         </form>
     );
