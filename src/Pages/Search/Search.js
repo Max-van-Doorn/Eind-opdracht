@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
-import SearchBar from "../Components/Searchbar/Searchbar";
+import SearchBar from "../../Components/Searchbar/Searchbar";
 import {Link} from "react-router-dom";
-import GameTile2 from "../Components/Gametile/Gametile2";
-import "../Pages/Search.css"
+import GameTile2 from "../../Components/Gametile/Gametile2";
+import "./Search.css"
 
 function Search() {
     const [gameData, setGameData] = useState({});

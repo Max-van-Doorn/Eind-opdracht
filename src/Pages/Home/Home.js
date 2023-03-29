@@ -3,9 +3,9 @@ import Header from "../../Components/Header";
 import axios from "axios";
 import './Home.css'
 import {Link} from "react-router-dom";
-import SearchBar from "../../Components/Searchbar/Searchbar";
 import GameTile2 from "../../Components/Gametile/Gametile2";
 import myGif from '../../Assets/Gaming-gif.gif';
+import search from "../../Assets/search icon.png"
 
 
 function Home() {
@@ -51,7 +51,7 @@ function Home() {
             <Header />
         </div>
             <div className="games-button-container-2">
-            <button className="games-button-2" type="button"> <a className="button-link" href={"/Search"}>Geavanceerd zoeken</a>
+            <button className="games-button-2" type="button"> <a className="button-link" href={"/Search"}>Geavanceerd zoeken naar games!</a>
             </button>
             </div>
             {Object.keys(gameData).length > 0 &&

@@ -9,7 +9,7 @@ import Registreren from "./Pages/Registeren/Registreren";
 import Gamedata from "./Pages/Gamedata/Gamedata";
 import Games from "./Pages/Games/Games"
 import Profile from "./Pages/Profile/Profile"
-import Search from "./Pages/Search"
+import Search from "./Pages/Search/Search"
 
 
 function App() {
