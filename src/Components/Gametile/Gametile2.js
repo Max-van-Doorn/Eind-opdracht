@@ -1,5 +1,5 @@
 import React from 'react'
-import "./Gametile/Gametile2.css"
+import "./Gametile2.css"
 import {Link} from "react-router-dom";
 
 function GameTile2({title, link, released, image }) {

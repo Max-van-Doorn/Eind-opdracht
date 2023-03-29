@@ -1,20 +1,40 @@
 import React, {useEffect, useState} from 'react';
 import Header from "../../Components/Header";
-import axios, {get} from "axios";
+import axios from "axios";
 import './Home.css'
 import {Link} from "react-router-dom";
 import SearchBar from "../../Components/Searchbar/Searchbar";
-import GameTile2 from "../../Components/Gametile2";
+import GameTile2 from "../../Components/Gametile/Gametile2";
 import myGif from '../../Assets/Gaming-gif.gif';
 
 
 function Home() {
     const [gameData, setGameData] = useState({});
     const [gameLocation, setGameLocation] = useState("")
+
+    async function fetchData() {
+        try {
+            const response = await axios.get(`https://api.rawg.io/api/games?key=${process.env.REACT_APP_API_KEY}`, {
+                params: {
+                    search: "Grand Theft Auto"
+                }
+                }
+            );
+
+
+            console.log(response.data);
+        } catch (e) {
+            console.error(e);
+        }
+    }
     useEffect(() => {
         async function fetchData() {
             try {
-                const response = await axios.get(`https://api.rawg.io/api/games?key=${process.env.REACT_APP_API_KEY}`);
+                const response = await axios.get(`https://api.rawg.io/api/games?key=${process.env.REACT_APP_API_KEY}`,{
+                    params:{
+                    }
+                });
+
 
                 console.log(response.data);
                 setGameData(response.data)
@@ -30,26 +50,29 @@ function Home() {
         <div>
             <Header />
         </div>
-            <SearchBar setGameHandler={setGameLocation}/>
+            <div className="games-button-container-2">
+            <button className="games-button-2" type="button"> <a className="button-link" href={"/Search"}>Geavanceerd zoeken</a>
+            </button>
+            </div>
             {Object.keys(gameData).length > 0 &&
                 <section className="section">
                     <article className="article">
                         <Link to={`/Gamedata/${gameData.results[0].id}`}>
-                        <img className="screenshot" src={gameData.results[0].background_image} />
+                        <img className="screenshot" src={gameData.results[0].background_image} alt="foto"/>
                         </Link>
                         <h1>{gameData.results[0].name}</h1>
                         <p className="text"><strong>Released:</strong> {gameData.results[0].released}</p>
                     </article>
                     <article className="article">
                         <Link to={`/Gamedata/${gameData.results[1].id}`}>
-                        <img className="screenshot" src={gameData.results[1].background_image}/>
+                        <img className="screenshot" src={gameData.results[1].background_image} alt="foto"/>
                         </Link>
                         <h1>{gameData.results[1].name}</h1>
                         <p className="text"><strong>Released:</strong> {gameData.results[1].released}</p>
                     </article>
                     <article className="article">
                         <Link to={`/Gamedata/${gameData.results[18].id}`}>
-                        <img className="screenshot" src={gameData.results[18].background_image}/>
+                        <img className="screenshot" src={gameData.results[18].background_image} alt="foto"/>
                         </Link>
                         <h1>{gameData.results[18].name}</h1>
                         <p className="text"><strong>Released:</strong> {gameData.results[18].released}</p>
@@ -100,7 +123,7 @@ function Home() {
                 <img className="gif" src={myGif} alt="gif"/>
             </section>
             <div className="games-button-container">
-            <button className="games-button" type="button"> <a className="button-link" href={"/Games"}>Klik hier voor de complete games lijst</a>
+            <button className="games-button" type="button"> <a className="button-link" href={"/Games"}>Klik hier voor de trending games lijst</a>
             </button>
             </div>
         </>

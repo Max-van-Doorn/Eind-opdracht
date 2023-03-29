@@ -2,12 +2,12 @@ import React, {  useState } from 'react';
 import "./Searchbar.css"
 import searchicon from "../../Assets/search icon.png"
 
-function SearchBar({ setGameHandler }) {
+function SearchBar({ onChangehandler }) {
     const [query, setQuery] = useState('');
 
     function onFormSubmit(e) {
         e.preventDefault();
-        setGameHandler(query);
+        onChangehandler(query);
     }
 
     return (

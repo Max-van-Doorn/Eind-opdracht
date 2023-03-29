@@ -1,5 +1,5 @@
 import './Games.css'
-import GameTile2 from "../../Components/Gametile2";
+import GameTile2 from "../../Components/Gametile/Gametile2";
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import Gif from "../../Assets/8630bc35816219.57060ce298562.gif"
@@ -34,7 +34,7 @@ function Games() {
                         <img className="game-gif" src={Gif} alt="Gif"/>
                         <img className="game-gif" src={Gif3} alt="Gif"/>
                         <img className="game-gif" src={Gif2} alt="Gif"/>
-                    <h1 className="game-list-header">Games lijst:</h1>
+                    <h1 className="game-list-header">Trending games lijst:</h1>
                         <img className="game-gif" src={Gif2} alt="Gif"/>
                         <img className="game-gif" src={Gif5} alt="Gif"/>
                         <img className="game-gif" src={Gif4} alt="Gif"/>
